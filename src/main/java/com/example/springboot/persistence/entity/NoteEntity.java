@@ -14,7 +14,7 @@ import java.sql.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Note {
+public class NoteEntity {
     @Id
     private Integer id;
     private String name;

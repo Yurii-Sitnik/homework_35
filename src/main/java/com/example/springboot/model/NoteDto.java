@@ -13,7 +13,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class NotesDto {
+public class NoteDto {
 
     private Integer id;
     private String name;

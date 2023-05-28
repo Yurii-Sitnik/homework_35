@@ -2,35 +2,29 @@ package com.example.springboot.web.mapper;
 
 
 import com.example.springboot.model.NoteDto;
+import com.example.springboot.persistence.entity.NoteEntity;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
+
 @Component
-public class UserMapper {
-
-    public UserEntity map(NoteDto dto) {
-        return UserEntity.builder()
-                .fio(dto.getFio())
-                .login(dto.getLogin())
-                .role(dto.getRole())
-                .phone(dto.getPhone())
-                .birthday(dto.getBirthday())
-                .createdAt(dto.getCreatedAt())
+public class NoteMapper {
+    public NoteEntity map(NoteDto noteDto) {
+        return NoteEntity.builder()
+                .name(noteDto.getName())
+                .content(noteDto.getContent())
+                .createdAt((noteDto.getCreatedAt()))
                 .build();
-
     }
 
-    public NoteDto map(UserEntity entity) {
+    public NoteDto map(NoteEntity noteEntity) {
         return NoteDto.builder()
-                .id(entity.getId())
-                .fio(entity.getFio())
-                .login(entity.getLogin())
-                .role(entity.getRole())
-                .phone(entity.getPhone())
-                .birthday(entity.getBirthday())
-                .createdAt(entity.getCreatedAt())
+                .name(noteEntity.getName())
+                .content(noteEntity.getContent())
+                .createdAt(noteEntity.getCreatedAt())
                 .build();
-
     }
-
-
+    public Date mapDate(Long date){
+        return new Date(date);
+    }
 }
